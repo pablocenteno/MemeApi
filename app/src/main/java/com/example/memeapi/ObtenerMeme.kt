@@ -18,4 +18,5 @@ class ObtenerMeme : AppCompatActivity() {
         startActivity(intent)
     }
 
+
 }

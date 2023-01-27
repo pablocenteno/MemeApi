@@ -13,7 +13,7 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="45dp"
         android:text="Buscar Meme"
-        android:onClick="ObtenerMeme"
+        android:onClick="buscarMemePorId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +24,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="200dp"
         android:text="Lista Memes"
-        android:onClick="ListaMemes"
+        android:onClick="listaMemes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

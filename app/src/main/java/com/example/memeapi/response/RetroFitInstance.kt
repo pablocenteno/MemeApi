@@ -2,20 +2,13 @@ package com.example.memeapi.response
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.URI
 
-class RetroFitInstance {
-
-
-    var url= "https://damemeapi.000webhostapp.com/"
-
-        fun getInstance():Retrofit{
-            return Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
-                // we need to add converter factory to
-                // convert JSON object to Java object
-                .build()
-        }
-
+object MemeRetrofitInstance {
+    val api: APIService by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://damemeapi.000webhostapp.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(APIService::class.java)
+    }
 }
