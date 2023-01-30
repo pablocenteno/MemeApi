@@ -12,15 +12,16 @@ import retrofit2.*
 class Meme : AppCompatActivity() {
     private var binding: ActivityMemeBinding? = null
     private var lista = mutableListOf<MemeResponse>()
+    private lateinit var id: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMemeBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
-        verMeme(intent.getIntExtra("id", 0))
+        id = intent.getStringExtra("idMeme").toString()
+       verMeme(id)
     }
 
-    fun verMeme(id: Int) {
+    fun verMeme(id:String) {
 
         MemeRetrofitInstance.api.getMeme("/meme?id=$id")
             .enqueue(object : Callback<MemeResponse> {
@@ -29,11 +30,11 @@ class Meme : AppCompatActivity() {
                     response: Response<MemeResponse>
                 ) {
                     if (response.body() != null) {
-                        lista= response.body() as MutableList<MemeResponse>
-
-                        binding?.titSup!!.text= lista.get(3).toString()
-                        binding?.titInf!!.text= lista.get(4).toString()
-                        Picasso.get().load(lista.get(2).toString()).into(binding!!.foto)
+                        //lista= response.body() as MutableList<MemeResponse>
+                       // response.body()!!.nombre
+                        binding?.titSup!!.text=  response.body()!!.titSup
+                       binding?.titInf!!.text= response.body()!!.titInf
+                        Picasso.get().load(response.body()!!.url).into(binding!!.foto)
 
                     }
                 }

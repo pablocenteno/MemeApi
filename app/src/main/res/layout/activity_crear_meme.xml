@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/NombreMeme"
+        android:id="@+id/nombreMeme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.373" />
 
     <EditText
-        android:id="@+id/Url"
+        android:id="@+id/url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -59,18 +59,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloInf" />
 
-    <EditText
-        android:id="@+id/Tag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Tag"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Url" />
-
     <Button
         android:id="@+id/Crear"
         android:layout_width="wrap_content"
@@ -79,4 +67,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="624dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="408dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/url" />
 </androidx.constraintlayout.widget.ConstraintLayout>
