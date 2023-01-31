@@ -13,7 +13,7 @@
         android:layout_marginTop="126dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Tag"
+        android:text="Nombre del tag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,19 @@
         android:layout_marginTop="138dp"
         android:text="Crear Tag"
         android:textSize="24sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/crear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="153dp"
+        android:onClick="crearTag"
+        android:text="Crear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crearTag" />
 </androidx.constraintlayout.widget.ConstraintLayout>

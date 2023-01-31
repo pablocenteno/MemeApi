@@ -19,4 +19,14 @@ class MainActivity : AppCompatActivity() {
         intent = Intent(this, ObtenerMeme::class.java)
         startActivity(intent)
     }
+
+    fun crearMeme(view:View){
+        intent=Intent(this,CrearMeme::class.java)
+        startActivity(intent)
+    }
+
+    fun creoTag(view: View){
+        intent=Intent(this,CrearTag::class.java)
+        startActivity(intent)
+    }
 }

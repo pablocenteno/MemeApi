@@ -35,7 +35,7 @@
         android:layout_marginTop="117dp"
         android:layout_marginEnd="56dp"
         android:text="Crear Tag"
-        android:onClick="CrearTag"
+        android:onClick="creoTag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ObtenerMeme" />
 
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="116dp"
-        android:onClick="CrearMeme"
+        android:onClick="crearMeme"
         android:text="Crear MEME"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ListaMemes" />

@@ -20,5 +20,8 @@ interface APIService {
     fun dameTags(@Url url:String):Call<List<TagResponse>>
 
     @POST
-    fun crearMeme(@Body memeDto:MemeDto): Call <*>
+    fun crearMeme(@Url url: String, @Body memeDto:MemeDto): Call <MemeResponse>
+
+    @POST
+    fun crearTag(@Url url: String, @Body tagDto:TagDto): Call<TagResponse>
 }

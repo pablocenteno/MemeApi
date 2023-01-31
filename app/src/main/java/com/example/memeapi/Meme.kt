@@ -1,6 +1,7 @@
 package com.example.memeapi
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.memeapi.databinding.ActivityMemeBinding
 import com.example.memeapi.response.MemeResponse
@@ -35,12 +36,11 @@ class Meme : AppCompatActivity() {
                         binding?.titSup!!.text=  response.body()!!.titSup
                        binding?.titInf!!.text= response.body()!!.titInf
                         Picasso.get().load(response.body()!!.url).into(binding!!.foto)
-
                     }
                 }
 
                 override fun onFailure(call: Call<MemeResponse>, t: Throwable) {
-
+                    Log.d("TAG", t.message.toString())
                 }
             })
     }
