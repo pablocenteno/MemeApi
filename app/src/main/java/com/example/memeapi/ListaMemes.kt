@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.memeapi.databinding.ActivityListaMemesBinding
 import com.example.memeapi.recycler.ListaMemesAdapter
@@ -28,12 +29,13 @@ class ListaMemes : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListaMemesBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        listarMemes(num)
-        num+=5
+       listarMemes(num)
+
+
 
     }
 
-    private fun listarMemes( view: View, num: Int) {
+    private fun listarMemes(num: Int) {
 
       MemeRetrofitInstance.api.dameMemes("/meme/list?count=5&page=$num").enqueue(object : Callback<List<MemeResponse>>{
           override fun onResponse(
@@ -54,11 +56,28 @@ class ListaMemes : AppCompatActivity() {
               Log.d("TAG", t.message.toString())
           }
       })
+
+    }
+
+    fun siguiente(view: View){
+        num+=5
+        listarMemes(num)
+
+
+    }
+
+    fun anterior(view: View){
+        if(num==0){
+
+        }
+        else{
+            num-=5
+            listarMemes(num)
+        }
+
     }
 
 
-    private fun dame5(){
 
-    }
 
 }
