@@ -21,7 +21,7 @@ import retrofit2.Response
 class CrearMeme : AppCompatActivity() {
     private lateinit var binding:ActivityCrearMemeBinding
     private var listaTags=mutableListOf<TagResponse>()
-
+    private var listaTag=mutableListOf<String>()
     private lateinit var crearNuevoMeme:MutableLiveData<MemeResponse>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,20 +29,25 @@ class CrearMeme : AppCompatActivity() {
         binding=ActivityCrearMemeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         listarTag()
-        val adaptador = ArrayAdapter(this,android.R.layout.simple_spinner_item,listaTags)
-        binding.spinner.adapter=adaptador
+
 
     }
 
     private fun listarTag(){
-        MemeRetrofitInstance.api.dameTags("/tag/list/").enqueue(object :Callback<List<TagResponse>>{
+        MemeRetrofitInstance.api.dameTags("/tag/").enqueue(object :Callback<List<TagResponse>>{
             override fun onResponse(
                 call: Call<List<TagResponse>>,
                 response: Response<List<TagResponse>>
             ) {
                if(response.body()!=null){
                     listaTags= response.body() as MutableList<TagResponse>
+                   for(t in listaTags){
+                       listaTag.add(t.texto)
+                   }
+                   val adaptador = ArrayAdapter(applicationContext,android.R.layout.simple_spinner_item,listaTag)
+                   binding.spinner.adapter=adaptador
                }
+
             }
 
             override fun onFailure(call: Call<List<TagResponse>>, t: Throwable) {
