@@ -21,13 +21,13 @@
         android:id="@+id/tit_sup"
         android:layout_width="474dp"
         android:layout_height="74dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="2dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

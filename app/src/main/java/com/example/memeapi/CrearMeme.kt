@@ -42,7 +42,8 @@ class CrearMeme : AppCompatActivity() {
                if(response.body()!=null){
                     listaTags= response.body() as MutableList<TagResponse>
                    for(t in listaTags){
-                       listaTag.add(t.texto)
+                       listaTag.add(t.texto.toString())
+
                    }
                    val adaptador = ArrayAdapter(applicationContext,android.R.layout.simple_spinner_item,listaTag)
                    binding.spinner.adapter=adaptador
@@ -58,7 +59,7 @@ class CrearMeme : AppCompatActivity() {
     }
 
      fun crearMemo(view: View){
-        var meme = MemeDto(binding.nombreMeme.text.toString(), binding.TituloSup.text.toString(),binding.tituloInf.text.toString(),binding.url.text.toString(),binding.spinner.toString())
+        var meme = MemeDto(binding.nombreMeme.text.toString(), binding.TituloSup.text.toString(),binding.tituloInf.text.toString(),binding.url.text.toString(),cogerItem(binding.spinner.selectedItem.toString()))
         MemeRetrofitInstance.api.crearMeme("/meme",meme).enqueue(object :Callback<MemeResponse>{
             override fun onResponse(call: Call<MemeResponse>, response: Response<MemeResponse>) {
                 if(response.body()!=null){
@@ -79,4 +80,16 @@ class CrearMeme : AppCompatActivity() {
 
 
     }
+fun cogerItem(palabra:String):String{
+    var id:String=""
+    for (t in listaTags){
+        if(palabra.equals(t.texto.toString())){
+            id = t.id.toString()
+
+
+    }
+
+}
+    return id
+}
 }
